@@ -5,19 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="icon" href="assets/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Raleway:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <script defer src="scripts/app.js"></script>
     <title>Etch A Sketch</title>
   </head>
   <body>
     <header>
-      <h1>Etch A Sketch</h1>
+      <h1 class="headgin">Etch A Sketch</h1>
     </header>
     <main>
-      <section>
-        <div class="controls">
+      <section class="container">
+        <div class="container__art-board"></div>
+
+        <div class="container__controls">
           <label for="color-picker">
             <svg
-              class="controls__icon"
+              class="container__icon"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -35,7 +43,7 @@
             id="brush-mode"
           >
             <!-- Brush icon -->
-            <svg class="controls__icon" viewBox="0 0 24 24" fill="none">
+            <svg class="container__icon" viewBox="0 0 24 24" fill="none">
               <path
                 d="M21.81 3.94c-1.54 3.84-5.4 9.06-8.63 11.65l-1.97 1.58c-.25.18-.5.34-.78.44 0-.18-.01-.38-.04-.57-.11-.84-.49-1.62-1.16-2.29-.68-.68-1.51-1.08-2.34-1.19-.2-.01-.4-.03-.6-.01.11-.31.28-.6.49-.85l1.56-1.97c2.58-3.23 7.82-7.11 11.65-8.64.59-.22 1.16-.06 1.52.3.38.38.56.95.32 1.55z"
                 stroke="currentColor"
@@ -59,7 +67,7 @@
             id="rainbow-mode"
           >
             <!-- Rainbow icon -->
-            <svg class="controls__icon" viewBox="0 0 64 64">
+            <svg class="container__icon" viewBox="0 0 64 64">
               <path
                 d="M62 6.5V2C35 2 13.2 23.8 13.2 50.6h4.5C17.7 26.3 37.5 6.5 62 6.5z"
                 fill="#f66"
@@ -90,7 +98,7 @@
           >
             <!-- Shading icon -->
             <svg
-              class="controls__icon"
+              class="container__icon"
               viewBox="0 -960 960 960"
               fill="currentColor"
             >
@@ -107,7 +115,7 @@
           >
             <!-- Lighten icon -->
             <svg
-              class="controls__icon"
+              class="container__icon"
               viewBox="0 -960 960 960"
               fill="currentColor"
             >
@@ -120,7 +128,11 @@
 
           <button class="controls__button controls__button--eraser" id="eraser">
             <!-- Eraser icon -->
-            <svg class="controls__icon" viewBox="0 0 24 24" fill="currentColor">
+            <svg
+              class="container__icon"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
               <path
                 d="M15.87 2.67l4.97 4.97a2.3 2.3 0 010 3.18l-8.68 8.68h6.08a.75.75 0 01.74.74c0 .41-.33.75-.74.75H9.84a2.3 2.3 0 01-1.71-.68l-4.97-4.97a2.3 2.3 0 010-3.18L12.69 2.67a2.3 2.3 0 013.18 0z"
               />
@@ -131,7 +143,7 @@
           <button class="controls__button controls__button--clean" id="clean">
             <!-- Clean icon -->
             <svg
-              class="controls__icon"
+              class="container__icon"
               viewBox="0 0 1024 1024"
               fill="currentColor"
             >
@@ -142,8 +154,6 @@
             Clean Artboard
           </button>
         </div>
-
-        <div class="container"></div>
       </section>
     </main>
   </body>
