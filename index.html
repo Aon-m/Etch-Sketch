@@ -1,42 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/styles.css" />
-    <link rel="icon" href="assets/images/favicon.png" />
-    <script defer src="scripts/app.js"></script>
-    <title>Etch a sketch</title>
-  </head>
-  <body>
-    <header>
-      <h1>Etch a sketch</h1>
-    </header>
-    <main>
-      <section>
-        <div class="controls">
-          <label for="color-picker">Color:</label>
-          <input
-            type="color"
-            id="color-picker"
-            name="color-picker"
-            value="#000000"
-          />
-          <button class="controls__button controls__button--brush" id="brush-mode">Brush mode</button>
-          <button class="controls__button controls__button--rainbow" id="rainbow-mode">
-            Rainbow Mode
-          </button>
-          <button class="controls__button controls__button--shading" id="shading-mode">
-            Shading Mode
-          </button>
-          <button class="controls__button controls__button--lighten" id="lighten-mode">
-            Lighten Mode
-          </button>
-          <button class="controls__button controls__button--eraser" id="erase">Eraser</button>
-          <button class="controls__button controls__button--" id="clean">Clean artboard</button>
-        </div>
-        <div class="container"></div>
-      </section>
-    </main>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles/styles.css" />
+        <link rel="icon" href="assets/images/favicon.png" />
+        <script defer src="scripts/app.js"></script>
+        <title>Etch a sketch</title>
+    </head>
+    <body>
+        <header>
+            <h1>Etch a sketch</h1>
+        </header>
+        <main>
+            <section>
+                <div class="controls">
+                    <label for="color-picker">
+                        <svg class="controls__icon" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0" width="20" height="20" fill="currentColor" />
+                            <path
+                                d="M17.8 2.2c-1-1-2.6-1-3.6 0L12.4 4l-.7-.7c-.4-.4-1-.4-1.4 0l-.8.7c-.4.4-.4 1 0 1.4l5 5c.4.4 1 .4 1.4 0l.7-.7c.4-.4.4-1 0-1.4l-.6-.7 1.8-1.8c1-1 1-2.6 0-3.6zM4.4 12c-2.2 2.2-.9 3.2-2.9 5.8l.7.7c2.6-2 3.6-.7 5.8-2.9l5.1-5.1-3.6-3.6L4.4 12z"
+                            />
+                        </svg>
+                        Color:
+                    </label>
+                    <input type="color" id="color-picker" value="#000000" />
+
+                    <button
+                        class="controls__button controls__button--brush"
+                        id="brush-mode"
+                    >
+                        <!-- Brush icon -->
+                        <svg class="controls__icon" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M21.81 3.94c-1.54 3.84-5.4 9.06-8.63 11.65l-1.97 1.58c-.25.18-.5.34-.78.44 0-.18-.01-.38-.04-.57-.11-.84-.49-1.62-1.16-2.29-.68-.68-1.51-1.08-2.34-1.19-.2-.01-.4-.03-.6-.01.11-.31.28-.6.49-.85l1.56-1.97c2.58-3.23 7.82-7.11 11.65-8.64.59-.22 1.16-.06 1.52.3.38.38.56.95.32 1.55z"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                            <path
+                                d="M10.43 17.62c0 1.1-.42 2.15-1.21 2.95-.61.61-1.44 1.02-2.43 1.15l-2.46.27c-1.34.15-2.49-1-2.33-2.35l.27-2.46c.24-2.19 2.07-3.59 4.02-3.62.21 0 .42.01.61.02.85.11 1.68.5 2.35 1.18.67.67 1.05 1.45 1.16 2.29.03.19.05.39.05.57z"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                        Brush Mode
+                    </button>
+
+                    <button
+                        class="controls__button controls__button--rainbow"
+                        id="rainbow-mode"
+                    >
+                        <!-- Rainbow icon -->
+                        <svg class="controls__icon" viewBox="0 0 64 64">
+                            <path
+                                d="M62 6.5V2C35 2 13.2 23.8 13.2 50.6h4.5C17.7 26.3 37.5 6.5 62 6.5z"
+                                fill="#f66"
+                            />
+                            <path
+                                d="M17.7 50.6h4.5C22.2 28.8 40 11 62 11V6.5c-24.5 0-44.3 19.8-44.3 44.1z"
+                                fill="#fffb80"
+                            />
+                            <path
+                                d="M62 15.5V11c-22 0-39.8 17.7-39.8 39.6h4.5c0-19.4 15.8-35.1 35.3-35.1"
+                                fill="#a3e66f"
+                            />
+                            <path
+                                d="M26.7 50.6h4.5C31.3 33.7 45 20 62 20v-4.5c-19.5 0-35.3 15.7-35.3 35.1z"
+                                fill="#66c2ff"
+                            />
+                            <path
+                                d="M62 24.5V20c-17 0-30.7 13.7-30.7 30.6h4.5c0-14.4 11.7-26.1 26.2-26.1"
+                                fill="#9180ff"
+                            />
+                        </svg>
+                        Rainbow Mode
+                    </button>
+
+                    <button
+                        class="controls__button controls__button--shading"
+                        id="shading-mode"
+                    >
+                        <!-- Shading icon -->
+                        <svg class="controls__icon" viewBox="0 -960 960 960" fill="currentColor">
+                            <path
+                                d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"
+                            />
+                        </svg>
+                        Shading Mode
+                    </button>
+
+                    <button
+                        class="controls__button controls__button--lighten"
+                        id="lighten-mode"
+                    >
+                        <!-- Lighten icon -->
+                        <svg class="controls__icon" viewBox="0 -960 960 960" fill="currentColor">
+                            <path
+                                d="M480-360q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0 80q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280Z"
+                            />
+                        </svg>
+                        Lighten Mode
+                    </button>
+
+                    <button class="controls__button controls__button--eraser" id="eraser">
+                        <!-- Eraser icon -->
+                        <svg class="controls__icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M15.87 2.67l4.97 4.97a2.3 2.3 0 010 3.18l-8.68 8.68h6.08a.75.75 0 01.74.74c0 .41-.33.75-.74.75H9.84a2.3 2.3 0 01-1.71-.68l-4.97-4.97a2.3 2.3 0 010-3.18L12.69 2.67a2.3 2.3 0 013.18 0z"
+                            />
+                        </svg>
+                        Eraser
+                    </button>
+
+                    <button class="controls__button controls__button--clean" id="clean">
+                        <!-- Clean icon -->
+                        <svg class="controls__icon" viewBox="0 0 1024 1024" fill="currentColor"></svg>
+                            <path
+                                d="M864 386H605V136c0-40-32-72-72-72h-36c-40 0-72 32-72 72v250H167c-35 0-63 28-63 63 0 30 22 56 50 61l-68 328c0 49 36 90 89 89 54-1 86-54 157-54 173 0 398 54 398 54 49 0 89-40 89-89l69-327c23-9 39-32 39-58 0-35-28-63-63-63z"
+                            />
+                        </svg>
+                        Clean Artboard
+                    </button>
+                </div>
+
+                <div class="container"></div>
+            </section>
+        </main>
+    </body>
 </html>
