@@ -1,11 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="icon" href="assets/images/favicon.png" />
+    <script defer src="scripts/app.js"></script>
+    <title>Etch a sketch</title>
+  </head>
+  <body>
+    <header>
+      <h1>Etch a sketch</h1>
+    </header>
+    <main>
+      <section>
+        <div class="controls">
+          <label for="color-picker">Color:</label>
+          <input
+            type="color"
+            id="color-picker"
+            name="color-picker"
+            value="#000000"
+          />
+          <button class="controls__button controls__button--brush" id="brush-mode">Brush mode</button>
+          <button class="controls__button controls__button--rainbow" id="rainbow-mode">
+            Rainbow Mode
+          </button>
+          <button class="controls__button controls__button--shading" id="shading-mode">
+            Shading Mode
+          </button>
+          <button class="controls__button controls__button--lighten" id="lighten-mode">
+            Lighten Mode
+          </button>
+          <button class="controls__button controls__button--eraser" id="erase">Eraser</button>
+          <button class="controls__button controls__button--" id="clean">Clean artboard</button>
+        </div>
+        <div class="container"></div>
+      </section>
+    </main>
+  </body>
 </html>
