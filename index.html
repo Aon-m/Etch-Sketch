@@ -16,14 +16,20 @@
   </head>
   <body>
     <header>
-      <h1 class="headgin">Etch A Sketch</h1>
+      <h1 class="heading">Etch A Sketch</h1>
     </header>
     <main>
       <section class="container">
-        <div class="container__art-board"></div>
+        <div class="container__art-board-wrapper">
+          <div class="container__art-board">
+            <div class="container__art-board-clip-primary"></div>
+            <div class="container__art-board-clip-secondary"></div>
+          </div>
+        </div>
 
         <div class="container__controls">
           <label for="color-picker">
+            Color
             <svg
               class="container__icon"
               viewBox="0 0 20 20"
@@ -34,12 +40,11 @@
                 d="M17.8 2.2c-1-1-2.6-1-3.6 0L12.4 4l-.7-.7c-.4-.4-1-.4-1.4 0l-.8.7c-.4.4-.4 1 0 1.4l5 5c.4.4 1 .4 1.4 0l.7-.7c.4-.4.4-1 0-1.4l-.6-.7 1.8-1.8c1-1 1-2.6 0-3.6zM4.4 12c-2.2 2.2-.9 3.2-2.9 5.8l.7.7c2.6-2 3.6-.7 5.8-2.9l5.1-5.1-3.6-3.6L4.4 12z"
               />
             </svg>
-            Color:
           </label>
-          <input type="color" id="color-picker" value="#000000" />
+          <input type="color" id="color-picker" value="#94d7e6" />
 
           <button
-            class="controls__button controls__button--brush"
+            class="container__button container__button--brush"
             id="brush-mode"
           >
             <!-- Brush icon -->
@@ -63,7 +68,7 @@
           </button>
 
           <button
-            class="controls__button controls__button--rainbow"
+            class="container__button container__button--rainbow"
             id="rainbow-mode"
           >
             <!-- Rainbow icon -->
@@ -89,11 +94,14 @@
                 fill="#9180ff"
               />
             </svg>
-            Rainbow Mode
+            <span>R</span><span>a</span><span>i</span><span>n</span
+            ><span>b</span><span>o</span><span>w</span>
+            <span> </span>
+            <span>M</span><span>o</span><span>d</span><span>e</span>
           </button>
 
           <button
-            class="controls__button controls__button--shading"
+            class="container__button container__button--shading"
             id="shading-mode"
           >
             <!-- Shading icon -->
@@ -110,7 +118,7 @@
           </button>
 
           <button
-            class="controls__button controls__button--lighten"
+            class="container__button container__button--lighten"
             id="lighten-mode"
           >
             <!-- Lighten icon -->
@@ -126,7 +134,10 @@
             Lighten Mode
           </button>
 
-          <button class="controls__button controls__button--eraser" id="eraser">
+          <button
+            class="container__button container__button--eraser"
+            id="eraser"
+          >
             <!-- Eraser icon -->
             <svg
               class="container__icon"
@@ -140,7 +151,7 @@
             Eraser
           </button>
 
-          <button class="controls__button controls__button--clean" id="clean">
+          <button class="container__button container__button--clean" id="clean">
             <!-- Clean icon -->
             <svg
               class="container__icon"
