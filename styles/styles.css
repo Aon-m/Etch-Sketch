@@ -21,8 +21,7 @@
   --button-lighten: hsl(0, 0%, 100%);
   --button-eraser: hsl(350, 80%, 85%);
   --button-eraser-text: hsl(345, 60%, 45%);
-  --button-clean: hsl(0, 0%, 100%);
-  --button-clean-text: hwb(0 47% 53%);
+  --button-clean: hwb(0 47% 53%);
 }
 
 *,
@@ -74,6 +73,7 @@ body::before {
 .container__icon {
   width: 1.5rem;
   height: 1.5rem;
+  margin-inline-end: 0.3rem;
 }
 .container__controls {
   display: flex;
@@ -194,8 +194,8 @@ body::before {
 }
 .container__button--clean {
   background: transparent;
-  border: 0.2rem solid var(--button-clean) !important;
-  color: var(--button-clean-text);
+  border: 0.15rem solid var(--button-clean) !important;
+  color: var(--button-clean);
 }
 .container button {
   border-radius: 0.5rem;
