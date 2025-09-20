@@ -2,10 +2,19 @@
 // Create number of divs using loops
 //
 
-let boxNumber = +prompt("How many boxes?", 16);
-const artBoard = document.querySelector(".container__art-board");
+const artBoard = document.querySelector(".container__art-board"),
+  userInput = document.querySelector("#size-slider");
+let boxNumber = 16;
+
+userInput.addEventListener("click", () => createBoxes());
 
 function createBoxes() {
+  document
+    .querySelectorAll(".container__art-board__box")
+    .forEach((box) => box.remove());
+
+  boxNumber = +userInput.value;
+
   for (let i = 1; i <= boxNumber * boxNumber; i++) {
     const box = document.createElement("div");
     box.className = "container__art-board__box";
@@ -15,5 +24,3 @@ function createBoxes() {
   artBoard.style.gridTemplateColumns = `repeat(${boxNumber}, 1fr)`;
   artBoard.style.gridTemplateRows = `repeat(${boxNumber}, 1fr)`;
 }
-
-createBoxes();
