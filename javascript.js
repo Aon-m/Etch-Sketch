@@ -39,8 +39,8 @@ function createBoxes() {
   artBoard.style.gridTemplateColumns = `repeat(${boxNumber}, 1fr)`;
   artBoard.style.gridTemplateRows = `repeat(${boxNumber}, 1fr)`;
 
-  boxSizeIndicator.classList.toggle("container__art-board__size");
   boxSizeIndicator.textContent = `${boxNumber} x ${boxNumber}`;
+  boxSizeIndicator.classList.add("container__art-board__size");
 }
 
 function startDrawing(e) {
