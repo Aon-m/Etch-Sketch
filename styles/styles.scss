@@ -124,6 +124,12 @@ body {
       aspect-ratio: 1 / 1;
     }
 
+    &__size {
+      font-size: clamp(1rem, calc(1rem + 1vw), 1.2rem);
+      font-weight: 500;
+      color: var(--color-primary);
+    }
+
     &-clip {
       z-index: 2;
       position: absolute;

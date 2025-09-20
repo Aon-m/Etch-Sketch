@@ -1,6 +1,7 @@
 // Variables and Constants
 const artBoard = document.querySelector(".container__art-board"),
-  boxSize = document.querySelector("#size-slider");
+  boxSize = document.querySelector("#size-slider"),
+  boxSizeIndicator = document.createElement("div");
 
 let boxNumber = 16,
   colorChosen = document.querySelector("#color-picker"),
@@ -8,9 +9,10 @@ let boxNumber = 16,
 
 // Eventlisteners
 // Inputs
-boxSize.addEventListener("input", () => createBoxes());
+boxSize.insertAdjacentElement("afterend", boxSizeIndicator);
 
 // Drawing
+boxSize.addEventListener("input", () => createBoxes());
 artBoard.addEventListener("mousedown", startDrawing);
 artBoard.addEventListener("mousemove", continueDrawing);
 
@@ -36,6 +38,9 @@ function createBoxes() {
 
   artBoard.style.gridTemplateColumns = `repeat(${boxNumber}, 1fr)`;
   artBoard.style.gridTemplateRows = `repeat(${boxNumber}, 1fr)`;
+
+  boxSizeIndicator.classList.toggle("container__art-board__size");
+  boxSizeIndicator.textContent = `${boxNumber} x ${boxNumber}`;
 }
 
 function startDrawing(e) {

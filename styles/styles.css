@@ -110,6 +110,11 @@ body::before {
 .container__art-board__box {
   aspect-ratio: 1/1;
 }
+.container__art-board__size {
+  font-size: clamp(1rem, 1rem + 1vw, 1.2rem);
+  font-weight: 500;
+  color: var(--color-primary);
+}
 .container__art-board-clip {
   z-index: 2;
   position: absolute;
