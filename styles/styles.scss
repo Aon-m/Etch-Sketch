@@ -108,6 +108,8 @@ body {
     aspect-ratio: 1/1;
     border: 1px solid var(--color-accent-secondary);
 
+    display: grid;
+
     &-wrapper {
       display: flex;
       flex-direction: column;
@@ -119,6 +121,7 @@ body {
     }
 
     &__box {
+      aspect-ratio: 1 / 1;
       border: 1px solid var(--color-accent-secondary);
     }
 
