@@ -7,11 +7,19 @@ let boxNumber = 16,
   drawing = false;
 
 // Eventlisteners
+// Inputs
 boxSize.addEventListener("input", () => createBoxes());
+
+// Drawing
 artBoard.addEventListener("mousedown", startDrawing);
 artBoard.addEventListener("mousemove", continueDrawing);
-artBoard.addEventListener("mouseup", stopDrawing);
 artBoard.addEventListener("mouseleave", stopDrawing);
+
+// Global drawing glitch prevention
+artBoard.addEventListener("dragstart", (e) => e.preventDefault());
+document.addEventListener("mouseup", stopDrawing);
+document.addEventListener("dragend", stopDrawing);
+document.addEventListener("mouseleave", stopDrawing);
 
 // Functions
 function createBoxes() {
