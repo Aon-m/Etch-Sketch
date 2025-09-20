@@ -110,7 +110,10 @@ body {
 
     &-wrapper {
       display: flex;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
       width: 100%;
       padding: 4rem 2rem 2rem 2rem;
     }
@@ -240,6 +243,10 @@ body {
     &:hover {
       filter: brightness(1.08);
     }
+  }
+
+  #size-slider {
+    width: 80%;
   }
 }
 

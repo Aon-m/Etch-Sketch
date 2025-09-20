@@ -99,7 +99,10 @@ body::before {
 }
 .container__art-board-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
   width: 100%;
   padding: 4rem 2rem 2rem 2rem;
 }
@@ -212,6 +215,9 @@ body::before {
 }
 .container button:hover {
   filter: brightness(1.08);
+}
+.container #size-slider {
+  width: 80%;
 }
 
 @media screen and (min-width: 45rem) {
