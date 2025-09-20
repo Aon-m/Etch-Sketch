@@ -123,25 +123,24 @@ body {
     }
 
     &-clip {
+      z-index: 2;
+      position: absolute;
+      transform: translateX(-50%);
+      height: 10%;
+
       &-primary {
-        position: absolute;
         top: -10%;
         left: 50%;
-        transform: translateX(-50%);
 
         width: 70%;
-        height: 10%;
         border-radius: 10rem 10rem 0 0;
         background: var(--color-secondary);
       }
       &-secondary {
-        position: absolute;
         top: -14%;
         left: 50%;
-        transform: translateX(-50%);
 
         width: 20%;
-        height: 10%;
         border-radius: 10rem;
         background: var(--color-accent-primary);
         border: 0.6rem solid var(--color-secondary);
@@ -229,7 +228,6 @@ body {
     border-radius: 0.5rem;
     border: none;
     width: min(80%, 12rem);
-    cursor: pointer;
 
     display: flex;
     padding: 0.4rem;
@@ -241,7 +239,14 @@ body {
     font-weight: 600;
 
     &:hover {
+      cursor: pointer;
       filter: brightness(1.08);
+      transform: scale(1.02);
+    }
+
+    &:active {
+      transform: scale(0.98);
+      filter: brightness(0.9);
     }
   }
 

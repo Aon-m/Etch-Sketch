@@ -109,23 +109,23 @@ body::before {
 .container__art-board__box {
   border: 1px solid var(--color-accent-secondary);
 }
-.container__art-board-clip-primary {
+.container__art-board-clip {
+  z-index: 2;
   position: absolute;
+  transform: translateX(-50%);
+  height: 10%;
+}
+.container__art-board-clip-primary {
   top: -10%;
   left: 50%;
-  transform: translateX(-50%);
   width: 70%;
-  height: 10%;
   border-radius: 10rem 10rem 0 0;
   background: var(--color-secondary);
 }
 .container__art-board-clip-secondary {
-  position: absolute;
   top: -14%;
   left: 50%;
-  transform: translateX(-50%);
   width: 20%;
-  height: 10%;
   border-radius: 10rem;
   background: var(--color-accent-primary);
   border: 0.6rem solid var(--color-secondary);
@@ -204,7 +204,6 @@ body::before {
   border-radius: 0.5rem;
   border: none;
   width: min(80%, 12rem);
-  cursor: pointer;
   display: flex;
   padding: 0.4rem;
   align-items: center;
@@ -214,7 +213,13 @@ body::before {
   font-weight: 600;
 }
 .container button:hover {
+  cursor: pointer;
   filter: brightness(1.08);
+  transform: scale(1.02);
+}
+.container button:active {
+  transform: scale(0.98);
+  filter: brightness(0.9);
 }
 .container #size-slider {
   width: 80%;
