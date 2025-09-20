@@ -13,7 +13,6 @@ boxSize.addEventListener("input", () => createBoxes());
 // Drawing
 artBoard.addEventListener("mousedown", startDrawing);
 artBoard.addEventListener("mousemove", continueDrawing);
-artBoard.addEventListener("mouseleave", stopDrawing);
 
 // Global drawing glitch prevention
 artBoard.addEventListener("dragstart", (e) => e.preventDefault());
@@ -57,3 +56,5 @@ function continueDrawing(e) {
 function stopDrawing() {
   drawing = false;
 }
+
+createBoxes();
