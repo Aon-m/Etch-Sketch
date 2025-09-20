@@ -109,7 +109,6 @@ body::before {
 }
 .container__art-board__box {
   aspect-ratio: 1/1;
-  border: 1px solid var(--color-accent-secondary);
 }
 .container__art-board-clip {
   z-index: 2;
