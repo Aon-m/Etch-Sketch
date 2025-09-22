@@ -12,6 +12,9 @@ const artBoard = document.querySelector(".container__art-board"),
 let boxNumber = 16,
   colorChosen = document.querySelector("#color-picker"),
   mode = brushMode,
+  red = null,
+  blue = null,
+  green = null,
   drawing = false;
 
 // Eventlisteners
@@ -45,6 +48,7 @@ brushBtn.addEventListener("click", () => {
 eraserBtn.addEventListener("click", () => {
   mode = eraserMode;
 });
+cleanBtn.addEventListener("click", clean);
 
 // Functions
 function createBoxes() {
@@ -102,13 +106,18 @@ function eraserMode(e) {
   e.target.style.backgroundColor = "#ffffff";
 }
 
-function lightenMode(e) {
+function lightenMode(e) {}
+
+function shadingMode(e) {}
+
+function clean() {
+  document
+    .querySelectorAll(".container__art-board__box")
+    .forEach((box) => (box.style.backgroundColor = "#ffffff"));
+  red = null;
+  blue = null;
+  green = null;
 }
-
-function shadingMode(e) {
-}
-
-
 
 // Startup Commands
 createBoxes();
