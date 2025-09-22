@@ -117,6 +117,8 @@ function eraserMode(e) {
 }
 
 function lightenMode(e) {
+  if (lightness >= 100) return;
+
   let currentColor = window.getComputedStyle(e.target).backgroundColor;
   let hslValue = rgbToHsl(currentColor);
   let lightness = hslValue[2],
@@ -127,6 +129,8 @@ function lightenMode(e) {
 }
 
 function shadingMode(e) {
+  if (lightness <= 0) return;
+
   let currentColor = window.getComputedStyle(e.target).backgroundColor;
   let hslValue = rgbToHsl(currentColor);
   let lightness = hslValue[2],
