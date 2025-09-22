@@ -1,10 +1,17 @@
 // Variables and Constants
 const artBoard = document.querySelector(".container__art-board"),
   boxSize = document.querySelector("#size-slider"),
-  boxSizeIndicator = document.createElement("div");
+  boxSizeIndicator = document.createElement("div"),
+  cleanBtn = document.querySelector("#clean"),
+  eraserBtn = document.querySelector("#eraser"),
+  lightenBtn = document.querySelector("#lighten-mode"),
+  shadingBtn = document.querySelector("#shading-mode"),
+  rainbowBtn = document.querySelector("#rainbow-mode"),
+  brushBtn = document.querySelector("#brush-mode");
 
 let boxNumber = 16,
   colorChosen = document.querySelector("#color-picker"),
+  mode = brushMode,
   drawing = false;
 
 // Eventlisteners
@@ -21,6 +28,23 @@ artBoard.addEventListener("dragstart", (e) => e.preventDefault());
 document.addEventListener("mouseup", stopDrawing);
 document.addEventListener("dragend", stopDrawing);
 document.addEventListener("mouseleave", stopDrawing);
+
+// Button modes
+lightenBtn.addEventListener("click", () => {
+  mode = lightenMode;
+});
+shadingBtn.addEventListener("click", () => {
+  mode = shadingMode;
+});
+rainbowBtn.addEventListener("click", () => {
+  mode = rainbowMode;
+});
+brushBtn.addEventListener("click", () => {
+  mode = brushMode;
+});
+eraserBtn.addEventListener("click", () => {
+  mode = eraserMode;
+});
 
 // Functions
 function createBoxes() {
@@ -47,14 +71,14 @@ function startDrawing(e) {
   if (e.target.classList.contains("container__art-board__box")) {
     drawing = true;
 
-    e.target.style.backgroundColor = `${colorChosen.value}`;
+    mode(e);
   }
 }
 
 function continueDrawing(e) {
   if (!drawing) return;
   if (e.target.classList.contains("container__art-board__box")) {
-    e.target.style.backgroundColor = colorChosen.value;
+    mode(e);
   }
 }
 
@@ -62,4 +86,29 @@ function stopDrawing() {
   drawing = false;
 }
 
+function brushMode(e) {
+  e.target.style.backgroundColor = colorChosen.value;
+}
+
+function rainbowMode(e) {
+  red = Math.floor(Math.random() * 256);
+  green = Math.floor(Math.random() * 256);
+  blue = Math.floor(Math.random() * 256);
+
+  e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+}
+
+function eraserMode(e) {
+  e.target.style.backgroundColor = "#ffffff";
+}
+
+function lightenMode(e) {
+}
+
+function shadingMode(e) {
+}
+
+
+
+// Startup Commands
 createBoxes();
