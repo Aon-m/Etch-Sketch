@@ -1,7 +1,6 @@
 :root {
   --color-primary: hsl(2, 83%, 63%);
-  --color-secondary: hsl(191, 62%, 74%);
-  --color-tertiary: hsl(48, 88%, 52%);
+  --color-variable: hsl(191, 62%, 74%);
 
   --color-accent-primary: hsl(0, 0%, 100%);
   --color-accent-secondary: hsl(202, 4%, 61%);
@@ -127,7 +126,7 @@ body {
     &__size {
       font-size: clamp(1rem, calc(1rem + 1vw), 1.2rem);
       font-weight: 500;
-      color: var(--color-primary);
+      color: var(--color-variable);
     }
 
     &-clip {
@@ -142,7 +141,7 @@ body {
 
         width: 70%;
         border-radius: 10rem 10rem 0 0;
-        background: var(--color-secondary);
+        background: var(--color-variable);
       }
       &-secondary {
         top: -14%;
@@ -151,7 +150,7 @@ body {
         width: 20%;
         border-radius: 10rem;
         background: var(--color-accent-primary);
-        border: 0.6rem solid var(--color-secondary);
+        border: 0.6rem solid var(--color-variable);
       }
     }
   }

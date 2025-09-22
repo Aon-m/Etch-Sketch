@@ -1,7 +1,6 @@
 :root {
   --color-primary: hsl(2, 83%, 63%);
-  --color-secondary: hsl(191, 62%, 74%);
-  --color-tertiary: hsl(48, 88%, 52%);
+  --color-variable: hsl(191, 62%, 74%);
   --color-accent-primary: hsl(0, 0%, 100%);
   --color-accent-secondary: hsl(202, 4%, 61%);
   --color-accent-tertiary: hsla(0, 0%, 73%, 0.306);
@@ -113,7 +112,7 @@ body::before {
 .container__art-board__size {
   font-size: clamp(1rem, 1rem + 1vw, 1.2rem);
   font-weight: 500;
-  color: var(--color-primary);
+  color: var(--color-variable);
 }
 .container__art-board-clip {
   z-index: 2;
@@ -126,7 +125,7 @@ body::before {
   left: 50%;
   width: 70%;
   border-radius: 10rem 10rem 0 0;
-  background: var(--color-secondary);
+  background: var(--color-variable);
 }
 .container__art-board-clip-secondary {
   top: -14%;
@@ -134,7 +133,7 @@ body::before {
   width: 20%;
   border-radius: 10rem;
   background: var(--color-accent-primary);
-  border: 0.6rem solid var(--color-secondary);
+  border: 0.6rem solid var(--color-variable);
 }
 .container__button--brush {
   background: var(--button-brush);

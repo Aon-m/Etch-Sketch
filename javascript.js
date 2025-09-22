@@ -12,11 +12,13 @@ const artBoard = document.querySelector(".container__art-board"),
 let boxNumber = 16,
   colorChosen = document.querySelector("#color-picker"),
   mode = brushMode,
+  lastBox,
   drawing = false;
 
 // Eventlisteners
 // Inputs
 boxSize.insertAdjacentElement("afterend", boxSizeIndicator);
+colorChosen.addEventListener("input", dynamicColors);
 
 // Drawing
 boxSize.addEventListener("input", () => createBoxes());
@@ -81,13 +83,17 @@ function startDrawing(e) {
 
 function continueDrawing(e) {
   if (!drawing) return;
-  if (e.target.classList.contains("container__art-board__box")) {
+  if (!e.target.classList.contains("container__art-board__box")) return;
+
+  if (e.target !== lastBox) {
     mode(e);
+    lastBox = e.target;
   }
 }
 
 function stopDrawing() {
   drawing = false;
+  lastBox = null;
 }
 
 function brushMode(e) {
@@ -100,6 +106,11 @@ function rainbowMode(e) {
   blue = Math.floor(Math.random() * 256);
 
   e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+
+  document.documentElement.style.setProperty(
+    "--color-variable",
+    `rgb(${red}, ${green}, ${blue})`
+  );
 }
 
 function eraserMode(e) {
@@ -170,6 +181,13 @@ function rgbToHsl(rgbStr) {
   if (h < 0) h += 360;
 
   return [h, s * 100, l * 100];
+}
+
+function dynamicColors() {
+  document.documentElement.style.setProperty(
+    "--color-variable",
+    colorChosen.value
+  );
 }
 
 // Startup Commands
