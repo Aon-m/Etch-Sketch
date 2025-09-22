@@ -12,9 +12,6 @@ const artBoard = document.querySelector(".container__art-board"),
 let boxNumber = 16,
   colorChosen = document.querySelector("#color-picker"),
   mode = brushMode,
-  red = null,
-  blue = null,
-  green = null,
   drawing = false;
 
 // Eventlisteners
@@ -43,6 +40,9 @@ rainbowBtn.addEventListener("click", () => {
   mode = rainbowMode;
 });
 brushBtn.addEventListener("click", () => {
+  mode = brushMode;
+});
+colorChosen.addEventListener("click", () => {
   mode = brushMode;
 });
 eraserBtn.addEventListener("click", () => {
@@ -95,7 +95,7 @@ function brushMode(e) {
 }
 
 function rainbowMode(e) {
-  red = Math.floor(Math.random() * 256);
+  let red = Math.floor(Math.random() * 256);
   green = Math.floor(Math.random() * 256);
   blue = Math.floor(Math.random() * 256);
 
@@ -106,9 +106,25 @@ function eraserMode(e) {
   e.target.style.backgroundColor = "#ffffff";
 }
 
-function lightenMode(e) {}
+function lightenMode(e) {
+  let currentColor = window.getComputedStyle(e.target).backgroundColor;
+  let hslValue = rgbToHsl(currentColor);
+  let lightness = hslValue[2],
+    saturation = hslValue[1],
+    hue = hslValue[0];
+  lightness = Math.min(lightness + 10, 100);
+  e.target.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+}
 
-function shadingMode(e) {}
+function shadingMode(e) {
+  let currentColor = window.getComputedStyle(e.target).backgroundColor;
+  let hslValue = rgbToHsl(currentColor);
+  let lightness = hslValue[2],
+    saturation = hslValue[1],
+    hue = hslValue[0];
+  lightness = Math.max(lightness - 10, 0);
+  e.target.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+}
 
 function clean() {
   document
@@ -117,6 +133,43 @@ function clean() {
   red = null;
   blue = null;
   green = null;
+}
+
+function rgbToHsl(rgbStr) {
+  const [r, g, b] = rgbStr.match(/\d+/g).map(Number);
+
+  let rNorm = r / 255;
+  let gNorm = g / 255;
+  let bNorm = b / 255;
+
+  const max = Math.max(rNorm, gNorm, bNorm);
+  const min = Math.min(rNorm, gNorm, bNorm);
+  const delta = max - min;
+
+  // Lightness
+  let l = (max + min) / 2;
+
+  // Saturation
+  let s = 0;
+  if (delta != 0) {
+    s = delta / (1 - Math.abs(2 * l - 1));
+  }
+
+  // Hue
+  let h = 0;
+  if (delta != 0) {
+    if (max === rNorm) {
+      h = 60 * (((gNorm - bNorm) / delta) % 6);
+    } else if (max === gNorm) {
+      h = 60 * ((bNorm - rNorm) / delta + 2);
+    } else {
+      h = 60 * ((rNorm - gNorm) / delta + 4);
+    }
+  }
+
+  if (h < 0) h += 360;
+
+  return [h, s * 100, l * 100];
 }
 
 // Startup Commands
