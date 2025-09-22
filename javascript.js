@@ -64,6 +64,7 @@ function createBoxes() {
     const box = document.createElement("div");
     box.className = "container__art-board__box";
     artBoard.appendChild(box);
+    box.style.backgroundColor = "#ffffff";
   }
 
   artBoard.style.gridTemplateColumns = `repeat(${boxNumber}, 1fr)`;
@@ -117,25 +118,23 @@ function eraserMode(e) {
 }
 
 function lightenMode(e) {
-  if (lightness >= 100) return;
-
   let currentColor = window.getComputedStyle(e.target).backgroundColor;
   let hslValue = rgbToHsl(currentColor);
   let lightness = hslValue[2],
     saturation = hslValue[1],
     hue = hslValue[0];
+  if (lightness >= 100) return;
   lightness = Math.min(lightness + 10, 100);
   e.target.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
 
 function shadingMode(e) {
-  if (lightness <= 0) return;
-
   let currentColor = window.getComputedStyle(e.target).backgroundColor;
   let hslValue = rgbToHsl(currentColor);
   let lightness = hslValue[2],
     saturation = hslValue[1],
     hue = hslValue[0];
+  if (lightness <= 0) return;
   lightness = Math.max(lightness - 10, 0);
   e.target.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
@@ -150,7 +149,7 @@ function clean() {
 }
 
 function rgbToHsl(rgbStr) {
-  const [r, g, b] = rgbStr.match(/\d+/g).map(Number);
+  const [r, g, b] = rgbStr.match(/\d+/g).slice(0, 3).map(Number);
 
   let rNorm = r / 255;
   let gNorm = g / 255;
