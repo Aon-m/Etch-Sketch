@@ -85,9 +85,13 @@ function continueDrawing(e) {
   if (!drawing) return;
   if (!e.target.classList.contains("container__art-board__box")) return;
 
-  if (e.target !== lastBox) {
+  if (mode === brushMode || mode === clean) {
     mode(e);
-    lastBox = e.target;
+  } else {
+    if (e.target !== lastBox) {
+      mode(e);
+      lastBox = e.target;
+    }
   }
 }
 
@@ -106,11 +110,6 @@ function rainbowMode(e) {
   blue = Math.floor(Math.random() * 256);
 
   e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-
-  document.documentElement.style.setProperty(
-    "--color-variable",
-    `rgb(${red}, ${green}, ${blue})`
-  );
 }
 
 function eraserMode(e) {
