@@ -7,7 +7,8 @@ const artBoard = document.querySelector(".container__art-board"),
   lightenBtn = document.querySelector("#lighten-mode"),
   shadingBtn = document.querySelector("#shading-mode"),
   rainbowBtn = document.querySelector("#rainbow-mode"),
-  brushBtn = document.querySelector("#brush-mode");
+  brushBtn = document.querySelector("#brush-mode"),
+  modeBtn = document.querySelectorAll(".container__button");
 
 let boxNumber = 16,
   colorChosen = document.querySelector("#color-picker"),
@@ -51,6 +52,7 @@ eraserBtn.addEventListener("click", () => {
   mode = eraserMode;
 });
 cleanBtn.addEventListener("click", clean);
+modeBtn.forEach((btn) => btn.addEventListener("click", indicateSelectedMode));
 
 // Functions
 function createBoxes() {
@@ -190,6 +192,13 @@ function dynamicColors() {
     "--color-variable",
     colorChosen.value
   );
+}
+
+function indicateSelectedMode(e) {
+  if (!e.currentTarget.classList.contains("container__button")) return;
+  if (e.currentTarget.classList.contains("container__button--clean")) return;
+  modeBtn.forEach((btn) => btn.classList.remove("container__button--mode"));
+  e.currentTarget.classList.add("container__button--mode");
 }
 
 // Startup Commands

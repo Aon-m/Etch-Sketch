@@ -229,6 +229,9 @@ body {
       border: 0.15rem solid var(--button-clean) !important;
       color: var(--button-clean);
     }
+    &--mode {
+      border: 2px solid var(--color-primary) !important;
+    }
   }
 
   button {
