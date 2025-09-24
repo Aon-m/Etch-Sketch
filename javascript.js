@@ -22,15 +22,28 @@ boxSize.insertAdjacentElement("afterend", boxSizeIndicator);
 colorChosen.addEventListener("input", dynamicColors);
 
 // Drawing
+// Desktop
 boxSize.addEventListener("input", () => createBoxes());
 artBoard.addEventListener("mousedown", startDrawing);
 artBoard.addEventListener("mousemove", continueDrawing);
 
+// Mobile
+artBoard.addEventListener("touchstart", startDrawing);
+artBoard.addEventListener("touchmove", continueDrawing);
+
 // Global drawing glitch prevention
+// Desktop
 artBoard.addEventListener("dragstart", (e) => e.preventDefault());
 document.addEventListener("mouseup", stopDrawing);
 document.addEventListener("dragend", stopDrawing);
 document.addEventListener("mouseleave", stopDrawing);
+
+// Mobile
+document.addEventListener("touchend", stopDrawing);
+document.addEventListener("touchcancel", stopDrawing);
+document.addEventListener("touchmove", (e) => e.preventDefault(), {
+  passive: false,
+});
 
 // Button modes
 lightenBtn.addEventListener("click", () => {
