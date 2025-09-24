@@ -39,9 +39,9 @@ document.addEventListener("dragend", stopDrawing);
 document.addEventListener("mouseleave", stopDrawing);
 
 // Mobile
-document.addEventListener("touchend", stopDrawing);
-document.addEventListener("touchcancel", stopDrawing);
-document.addEventListener("touchmove", (e) => e.preventDefault(), {
+artBoard.addEventListener("touchend", stopDrawing);
+artBoard.addEventListener("touchcancel", stopDrawing);
+artBoard.addEventListener("touchmove", (e) => e.preventDefault(), {
   passive: false,
 });
 
