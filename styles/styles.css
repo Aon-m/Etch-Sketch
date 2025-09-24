@@ -66,7 +66,7 @@ body::before {
   justify-content: center;
   overflow: hidden;
   background: var(--color-accent-primary);
-  width: min(80vw, 50rem);
+  width: 80vw;
   border-radius: clamp(1.5rem, 1.5rem + 1vw, 3rem);
 }
 .container__icon {
@@ -92,7 +92,7 @@ body::before {
 }
 .container__art-board {
   position: relative;
-  width: clamp(20rem, 20rem + 2vw, 30rem);
+  width: 100%;
   aspect-ratio: 1/1;
   border: 1px solid var(--color-accent-secondary);
   display: grid;
@@ -103,7 +103,6 @@ body::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
   width: 100%;
   padding: 4rem 2rem 2rem 2rem;
 }
@@ -232,17 +231,24 @@ body::before {
 }
 .container #size-slider {
   width: 80%;
+  margin-block-start: 1rem;
 }
 
-@media screen and (min-width: 45rem) {
+@media screen and (min-width: 768px) {
   .container {
     flex-direction: row;
+    width: clamp(20rem, 20rem + 40vw, 60rem);
   }
   .container__controls {
     max-width: 20rem;
     order: 1;
+    align-self: stretch;
+  }
+  .container__art-board {
+    margin-block-start: 2rem;
   }
   .container__art-board-wrapper {
+    width: clamp(30rem, 35rem + 5vw, 40rem);
     order: 2;
   }
 }/*# sourceMappingURL=styles.css.map */
