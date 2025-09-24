@@ -2,9 +2,13 @@
 
 This is a solution to the [Project: Etch-a-Sketch on Odin project](https://www.theodinproject.com/lessons/foundations-etch-a-sketch#project-solution). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
+### Caution
+Mobile isn't supported yet.
+
 ## Table of contents
 
 - [Project: Etch-a-Sketch](#project-etch-a-sketch)
+    - [Caution](#caution)
   - [Table of contents](#table-of-contents)
   - [Overview](#overview)
     - [The challenge](#the-challenge)

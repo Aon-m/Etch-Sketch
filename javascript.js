@@ -41,8 +41,13 @@ document.addEventListener("mouseleave", stopDrawing);
 // Mobile
 artBoard.addEventListener("touchend", stopDrawing);
 artBoard.addEventListener("touchcancel", stopDrawing);
-artBoard.addEventListener("touchmove", (e) => e.preventDefault(), {
-  passive: false,
+artBoard.addEventListener("touchmove", (e) => {
+  if (drawing === true) {
+    e.preventDefault(),
+      {
+        passive: false,
+      };
+  }
 });
 
 // Button modes
