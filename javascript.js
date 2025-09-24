@@ -52,7 +52,10 @@ eraserBtn.addEventListener("click", () => {
   mode = eraserMode;
 });
 cleanBtn.addEventListener("click", clean);
+
+// Mode indicator
 modeBtn.forEach((btn) => btn.addEventListener("click", indicateSelectedMode));
+brushBtn.classList.add("container__button--mode");
 
 // Functions
 function createBoxes() {
