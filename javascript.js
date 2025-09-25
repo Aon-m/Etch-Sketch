@@ -63,9 +63,6 @@ rainbowBtn.addEventListener("click", () => {
 brushBtn.addEventListener("click", () => {
   mode = brushMode;
 });
-colorChosen.addEventListener("click", () => {
-  mode = brushMode;
-});
 eraserBtn.addEventListener("click", () => {
   mode = eraserMode;
 });
