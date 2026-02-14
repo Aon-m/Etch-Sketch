@@ -57,6 +57,8 @@ body::before {
   text-shadow: 0 0 1rem var(--color-accent-primary);
   font-weight: bolder;
   font-size: clamp(2rem, 2rem + 1vw, 3rem);
+  text-transform: uppercase;
+  font-family: "Shizuru", sans-serif;
 }
 
 .container {
@@ -251,4 +253,4 @@ body::before {
     width: clamp(30rem, 35rem + 5vw, 40rem);
     order: 2;
   }
-}/*# sourceMappingURL=styles.css.map */
+}

@@ -47,7 +47,7 @@ body {
   gap: 2rem;
   padding-block: 1rem;
 
-  font-family: "Quicksand", sans-serif;
+  font-family: "Shizuru", sans-serif;
 
   &::before {
     content: "";
@@ -63,6 +63,7 @@ body {
   text-shadow: 0 0 1rem var(--color-accent-primary);
   font-weight: bolder;
   font-size: clamp(2rem, calc(2rem + 1vw), 3rem);
+  text-transform: uppercase;
 }
 
 .container {

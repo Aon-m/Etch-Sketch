@@ -28,8 +28,12 @@ artBoard.addEventListener("mousedown", startDrawing);
 artBoard.addEventListener("mousemove", continueDrawing);
 
 // Mobile
-artBoard.addEventListener("touchstart", startDrawing);
-artBoard.addEventListener("touchmove", continueDrawing);
+artBoard.addEventListener("touchstart", startDrawingTouch, { passive: false });
+artBoard.addEventListener("touchmove", continueDrawingTouch, {
+  passive: false,
+});
+artBoard.addEventListener("touchend", stopDrawing);
+artBoard.addEventListener("touchcancel", stopDrawing);
 
 // Global drawing glitch prevention
 // Desktop
@@ -37,18 +41,6 @@ artBoard.addEventListener("dragstart", (e) => e.preventDefault());
 document.addEventListener("mouseup", stopDrawing);
 document.addEventListener("dragend", stopDrawing);
 document.addEventListener("mouseleave", stopDrawing);
-
-// Mobile
-artBoard.addEventListener("touchend", stopDrawing);
-artBoard.addEventListener("touchcancel", stopDrawing);
-artBoard.addEventListener("touchmove", (e) => {
-  if (drawing === true) {
-    e.preventDefault(),
-      {
-        passive: false,
-      };
-  }
-});
 
 // Button modes
 lightenBtn.addEventListener("click", () => {
@@ -112,6 +104,36 @@ function continueDrawing(e) {
     if (e.target !== lastBox) {
       mode(e);
       lastBox = e.target;
+    }
+  }
+}
+
+function startDrawingTouch(e) {
+  e.preventDefault();
+  const touch = e.touches[0];
+  const target = document.elementFromPoint(touch.clientX, touch.clientY);
+
+  if (target.classList.contains("container__art-board__box")) {
+    drawing = true;
+
+    mode({ target });
+  }
+}
+
+function continueDrawingTouch(e) {
+  e.preventDefault();
+  const touch = e.touches[0];
+  const target = document.elementFromPoint(touch.clientX, touch.clientY);
+
+  if (!drawing) return;
+  if (!target.classList.contains("container__art-board__box")) return;
+
+  if (mode === brushMode || mode === clean) {
+    mode({ target });
+  } else {
+    if (target !== lastBox) {
+      mode({ target });
+      lastBox = target;
     }
   }
 }
@@ -208,7 +230,7 @@ function rgbToHsl(rgbStr) {
 function dynamicColors() {
   document.documentElement.style.setProperty(
     "--color-variable",
-    colorChosen.value
+    colorChosen.value,
   );
 }
 
